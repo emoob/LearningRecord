@@ -46,6 +46,8 @@ func (l *List) Delete(element int) (List, error) {
 			copyList := make([]int, len(l.E))
 			copy(copyList, l.E)
 			data := append(copyList[:i], copyList[i+1:]...)
+			l.E = data
+			l.Capacity = len(data)
 			return List{
 				E:        data,
 				Capacity: len(data),
