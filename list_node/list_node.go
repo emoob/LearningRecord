@@ -46,13 +46,6 @@ func (n *ListNode) DelNode(index int) int {
 	}
 	head := n.Node
 	// todo
-	//for head != nil {
-	//	head = head.Node
-	//	if head.Structure == index {
-	//		head = head.Node
-	//		n.Node = head
-	//		return 1
-	//	}
-	//}
+
 	return 0
 }
