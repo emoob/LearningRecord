@@ -1,9 +1,9 @@
 package list_node
 
-type E int
+import "fmt"
 
 type ListNode struct {
-	Structure E
+	Structure int
 	Node      *ListNode
 }
 
@@ -12,7 +12,7 @@ func (n *ListNode) NewNode(node ListNode) *ListNode {
 }
 
 // Insertlist 链表的插入
-func (n *ListNode) Insertlist(head *ListNode, e E, index int) int {
+func (n *ListNode) Insertlist(head *ListNode, e int, index int) int {
 	if index < 1 {
 		return 0
 	}
@@ -29,4 +29,30 @@ func (n *ListNode) Insertlist(head *ListNode, e E, index int) int {
 	newNode := &ListNode{Structure: e, Node: current.Node}
 	current.Node = newNode
 	return 1
+}
+
+// PrintList 查看所有节点
+func (n *ListNode) PrintList() {
+	head := n.Node
+	for head != nil {
+		fmt.Printf("%v\n", head.Structure)
+		head = head.Node
+	}
+}
+
+func (n *ListNode) DelNode(index int) int {
+	if index < 1 {
+		return 0
+	}
+	head := n.Node
+	// todo
+	//for head != nil {
+	//	head = head.Node
+	//	if head.Structure == index {
+	//		head = head.Node
+	//		n.Node = head
+	//		return 1
+	//	}
+	//}
+	return 0
 }

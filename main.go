@@ -33,9 +33,10 @@ func main() {
 		Structure: 0,
 		Node:      nil,
 	}
-	node.Insertlist(node, 1, 1)
-	node.Insertlist(node, 3, 2)
-	node.Insertlist(node, 2, 3)
-	node.Insertlist(node, 10, 2)
+	for i := 1; i < 11; i++ {
+		node.Insertlist(node, i, 1)
+	}
+	node.DelNode(5)
+	node.PrintList()
 
 }
