@@ -1,14 +1,8 @@
 package main
 
 import (
-	"fmt"
-	"structure/sequence"
+	"structure/list_node"
 )
-
-// @sum 高斯求合
-func sum(a, n int) int {
-	return (a + n) * n / 2
-}
 
 //	func main() {
 //		b := binary.Binary{
@@ -19,17 +13,29 @@ func sum(a, n int) int {
 //		fmt.Println(b.Search())
 //	}
 
+//func main() {
+//	d := &sequence.List{}
+//	c, err := d.NewList([]int{1, 999, 555, 88})
+//	if err != nil {
+//		fmt.Println(err.Error())
+//		return
+//	}
+//	c.Sort()
+//	fmt.Print(c.E)
+//	if index, ok := c.GettingElements(999); ok {
+//		fmt.Print(index)
+//	}
+//
+//}
+
 func main() {
-	d := &sequence.List{}
-	c, err := d.NewList([]int{1, 999, 555, 88})
-	if err != nil {
-		fmt.Println(err.Error())
-		return
+	node := &list_node.ListNode{
+		Structure: 0,
+		Node:      nil,
 	}
-	c.Sort()
-	fmt.Print(c.E)
-	if index, ok := c.GettingElements(999); ok {
-		fmt.Print(index)
-	}
+	node.Insertlist(node, 1, 1)
+	node.Insertlist(node, 3, 2)
+	node.Insertlist(node, 2, 3)
+	node.Insertlist(node, 10, 2)
 
 }

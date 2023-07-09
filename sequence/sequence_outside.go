@@ -55,7 +55,7 @@ func (l *List) Delete(element int) (List, error) {
 	return List{
 		E:        l.E,
 		Capacity: l.Capacity,
-	}, fmt.Errorf("not found %s", element)
+	}, fmt.Errorf("not found %d", element)
 }
 
 // GettingElements 判断这个元素是否存在及获取下标  时间复杂度O(n)
@@ -101,6 +101,6 @@ func (l *List) Sort() bool {
 // Output 输出所有元素
 func (l *List) Output() {
 	for i := 0; i < l.Capacity; i++ {
-		fmt.Printf("index:%d price:%s \n", i, l.E[i])
+		fmt.Printf("index:%d price:%d \n", i, l.E[i])
 	}
 }

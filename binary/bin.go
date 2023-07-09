@@ -10,10 +10,16 @@ type Binary struct {
 	Target   int
 }
 
+// @sum 高斯求合
+func sum(a, n int) int {
+	return (a + n) * n / 2
+}
+
 func (B *Binary) Search() int {
 	return B.BinnarySearch(B.Nums, B.Target, 0, B.NumsSize-1)
 }
 
+// BinnarySearch 二分查找
 func (B *Binary) BinnarySearch(nums []int, target, left, right int) int {
 	if left > right {
 		return -1
