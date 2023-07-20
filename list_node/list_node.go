@@ -39,13 +39,27 @@ func (n *ListNode) PrintList() {
 		head = head.Node
 	}
 }
-
 func (n *ListNode) DelNode(index int) int {
 	if index < 1 {
 		return 0
 	}
 	head := n.Node
-	// todo
-
-	return 0
+	if index == 1 {
+		// 删除头节点
+		n.Node = n.Node.Node
+		return 1
+	}
+	// 遍历到index - 1所在的节点
+	current := head
+	for i := 0; i < index-1 && current != nil; i++ {
+		current = current.Node
+	}
+	// 如果current=nil则超出链表长度
+	if current == nil || current.Node == nil {
+		// 节点不存在
+		return 0
+	}
+	// 删除节点
+	current.Node = current.Node.Node
+	return 1
 }
