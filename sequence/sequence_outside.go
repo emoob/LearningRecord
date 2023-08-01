@@ -11,7 +11,7 @@ type List struct {
 }
 
 // NewList 初始化数据
-func (l *List) NewList(e []int) (*List, error) {
+func NewList(e []int) (*List, error) {
 	if len(e) == 0 {
 		return &List{},
 			fmt.Errorf("initialization must define attributes")

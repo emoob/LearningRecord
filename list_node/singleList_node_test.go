@@ -10,5 +10,5 @@ func TestSingleListNode(T *testing.T) {
 	n.DelNode(1)
 	n.DelNode(1)
 	n.DelNode(1)
-	n.PrintList()
+	n.Print()
 }

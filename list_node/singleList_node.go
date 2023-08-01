@@ -34,11 +34,11 @@ func (n *SingleListNode) Insertlist(e int, index int) int {
 	return 1
 }
 
-// PrintList 查看所有节点
-func (n *SingleListNode) PrintList() {
+// Print 查看所有节点数据
+func (n *SingleListNode) Print() {
 	head := n.Node
 	for head != nil {
-		fmt.Printf("%v\n", head.Structure)
+		fmt.Printf("当前节点数据:%v\n", head.Structure)
 		head = head.Node
 	}
 }
@@ -58,7 +58,6 @@ func (n *SingleListNode) DelNode(index int) int {
 	}
 	// 节点超出链表长度
 	if current == nil || current.Node == nil {
-		// 节点不存在
 		return 0
 	}
 	// 删除节点

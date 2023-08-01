@@ -1,5 +1,7 @@
 package list_node
 
+import "fmt"
+
 type DoublyNode struct {
 	E    int
 	next *DoublyNode
@@ -39,4 +41,13 @@ func (d *DoublyNode) Insertlist(e int, index int) int {
 		newNode.next.prev = newNode
 	}
 	return 1
+}
+
+// Print 查看所有节点数据
+func (d *DoublyNode) Print() {
+	current := d.next
+	for current != nil {
+		fmt.Printf("当前节点数据%v \n", current.E)
+		current = current.next
+	}
 }
