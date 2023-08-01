@@ -15,11 +15,11 @@ func NewNode() *SingleListNode {
 }
 
 // Insertlist 链表的插入
-func (n *SingleListNode) Insertlist(head *SingleListNode, e int, index int) int {
+func (n *SingleListNode) Insertlist(e int, index int) int {
 	if index < 1 {
 		return 0
 	}
-	current := head
+	current := n
 	// 遍历到index所在的节点
 	for i := 0; i < index-1 && current != nil; i++ {
 		current = current.Node
