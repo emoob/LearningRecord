@@ -3,13 +3,12 @@ package list_node
 import "testing"
 
 func TestSingleListNode(T *testing.T) {
-	node := &SingleListNode{
-		Structure: 0,
-		Node:      nil,
-	}
+	n := NewNode()
 	for i := 1; i < 11; i++ {
-		node.Insertlist(node, i, 1)
+		n.Insertlist(n, i, i)
 	}
-	node.DelNode(5)
-	node.PrintList()
+	n.DelNode(1)
+	n.DelNode(1)
+	n.DelNode(1)
+	n.PrintList()
 }

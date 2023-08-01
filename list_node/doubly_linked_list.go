@@ -6,7 +6,7 @@ type DoublyNode struct {
 	prev *DoublyNode
 }
 
-func NewDoublyNode(h DoublyNode) {
+func NewDoublyNode(h *DoublyNode) {
 	h.next = nil
 	h.prev = nil
 }

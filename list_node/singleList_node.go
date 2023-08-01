@@ -7,8 +7,11 @@ type SingleListNode struct {
 	Node      *SingleListNode
 }
 
-func (n *SingleListNode) NewNode(node SingleListNode) *SingleListNode {
-	return &node
+func NewNode() *SingleListNode {
+	return &SingleListNode{
+		Structure: 0,
+		Node:      nil,
+	}
 }
 
 // Insertlist 链表的插入
