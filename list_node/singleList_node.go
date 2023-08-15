@@ -15,9 +15,9 @@ func NewNode() *SingleListNode {
 }
 
 // Insertlist 插入
-func (n *SingleListNode) Insertlist(e int, index int) int {
+func (n *SingleListNode) Insertlist(e int, index int) bool {
 	if index < 1 {
-		return 0
+		return false
 	}
 	current := n
 	// 遍历到index所在的节点
@@ -26,12 +26,12 @@ func (n *SingleListNode) Insertlist(e int, index int) int {
 	}
 	// 如果current=nil则超出链表长度
 	if current == nil {
-		return 0
+		return false
 	}
 	// 创建一个新的结构，并把数据插入
 	newNode := &SingleListNode{Structure: e, Node: current.Node}
 	current.Node = newNode
-	return 1
+	return true
 }
 
 // Print 查看所有节点数据
@@ -44,14 +44,14 @@ func (n *SingleListNode) Print() {
 }
 
 // DelNode 删除某个节点
-func (n *SingleListNode) DelNode(index int) int {
+func (n *SingleListNode) DelNode(index int) bool {
 	if index < 1 {
-		return 0
+		return false
 	}
 	head := n.Node
 	if index == 1 {
 		n.Node = n.Node.Node
-		return 1
+		return true
 	}
 	current := head
 	// 遍历到这个节点所在得位置
@@ -60,9 +60,9 @@ func (n *SingleListNode) DelNode(index int) int {
 	}
 	// 节点超出链表长度
 	if current == nil || current.Node == nil {
-		return 0
+		return false
 	}
 	// 删除节点
 	current.Node = current.Node.Node
-	return 1
+	return true
 }

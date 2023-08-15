@@ -17,16 +17,16 @@ func NewDoublyNode() *DoublyNode {
 }
 
 // Insertlist 插入
-func (d *DoublyNode) Insertlist(e int, index int) int {
+func (d *DoublyNode) Insertlist(e int, index int) bool {
 	if index < 1 {
-		return 0
+		return false
 	}
 	current := d
 	for i := 0; i < index-1 && current != nil; i++ {
 		current = current.next
 	}
 	if current == nil {
-		return 0
+		return false
 	}
 	// 在当前节点存在的情况下，下一个节点就是当前节点的下一个节点
 	// 上一个节点就是当前节点
@@ -42,7 +42,7 @@ func (d *DoublyNode) Insertlist(e int, index int) int {
 	if newNode.next != nil {
 		newNode.next.prev = newNode
 	}
-	return 1
+	return true
 }
 
 // Print 查看所有节点数据
