@@ -16,5 +16,9 @@ func TestList(t *testing.T) {
 	if index, ok := c.GettingElements(999); ok {
 		log.Printf("所在下标：%d \n", index)
 	}
+	c.Insert(3, 10)
+	log.Printf("%d", c.E)
+	c.Sort()
+	log.Printf("%d", c.E)
 
 }

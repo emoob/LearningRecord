@@ -24,41 +24,34 @@ func NewList(e []int) (*List, error) {
 }
 
 // Insert 插入 移动n-i+1个元素元素  时间复杂度O(n)
-func (l *List) Insert(index int, element int) (List, error) {
+func (l *List) Insert(index int, element int) bool {
 	if index > len(l.E)-1 {
-		return List{}, fmt.Errorf(" index out of range")
+		log.Print("插入索引大于个数")
+		return false
 	}
 	copyList := make([]int, len(l.E))
 	copy(copyList, l.E)
 	copyList[index] = element
-	data := append(copyList[:index+1], l.E[index:]...)
-	l.E = data
-	l.Capacity = len(data)
-	return List{E: data, Capacity: len(data)}, nil
+	l.E = append(copyList[:index+1], l.E[index:]...)
+	l.Capacity = len(l.E)
+	return true
 }
 
 // Delete 删除  时间复杂度O(n)
-func (l *List) Delete(element int) (List, error) {
+func (l *List) Delete(element int) bool {
 	if l.Capacity < 0 {
-		return List{}, fmt.Errorf("length less than 0 ")
+		return false
 	}
 	for i := 0; i <= l.Capacity-1; i++ {
 		if l.E[i] == element {
 			copyList := make([]int, len(l.E))
 			copy(copyList, l.E)
-			data := append(copyList[:i], copyList[i+1:]...)
-			l.E = data
-			l.Capacity = len(data)
-			return List{
-				E:        data,
-				Capacity: len(data),
-			}, nil
+			l.E = append(copyList[:i], copyList[i+1:]...)
+			l.Capacity = len(l.E)
+			return true
 		}
 	}
-	return List{
-		E:        l.E,
-		Capacity: l.Capacity,
-	}, fmt.Errorf("not found %d", element)
+	return false
 }
 
 // GettingElements 判断这个元素是否存在及获取下标  时间复杂度O(n)
