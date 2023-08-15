@@ -14,7 +14,7 @@ func NewNode() *SingleListNode {
 	}
 }
 
-// Insertlist 链表的插入
+// Insertlist 插入
 func (n *SingleListNode) Insertlist(e int, index int) int {
 	if index < 1 {
 		return 0
@@ -42,6 +42,8 @@ func (n *SingleListNode) Print() {
 		head = head.Node
 	}
 }
+
+// DelNode 删除某个节点
 func (n *SingleListNode) DelNode(index int) int {
 	if index < 1 {
 		return 0

@@ -2,6 +2,7 @@ package sequence
 
 import (
 	"fmt"
+	"log"
 )
 
 // List 数组初始化信息
@@ -103,6 +104,6 @@ func (l *List) Sort() bool {
 // Output 输出所有元素
 func (l *List) Output() {
 	for i := 0; i < l.Capacity; i++ {
-		fmt.Printf("index:%d price:%d \n", i, l.E[i])
+		log.Printf("index:%d price:%d \n", i, l.E[i])
 	}
 }

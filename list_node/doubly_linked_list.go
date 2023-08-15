@@ -1,6 +1,6 @@
 package list_node
 
-import "fmt"
+import "log"
 
 type DoublyNode struct {
 	E    int
@@ -15,6 +15,8 @@ func NewDoublyNode() *DoublyNode {
 		prev: nil,
 	}
 }
+
+// Insertlist 插入
 func (d *DoublyNode) Insertlist(e int, index int) int {
 	if index < 1 {
 		return 0
@@ -47,7 +49,7 @@ func (d *DoublyNode) Insertlist(e int, index int) int {
 func (d *DoublyNode) Print() {
 	current := d.next
 	for current != nil {
-		fmt.Printf("当前节点数据%v \n", current.E)
+		log.Printf("当前节点数据%v \n", current.E)
 		current = current.next
 	}
 }
