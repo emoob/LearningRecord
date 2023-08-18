@@ -45,7 +45,7 @@ func Debug(format string, v ...any) {
 }
 
 func getCallTrace() (string, int) {
-	_, file, lineno, ok := runtime.Caller(0)
+	_, file, lineno, ok := runtime.Caller(3)
 	if ok {
 		return file, lineno
 	}
@@ -53,5 +53,9 @@ func getCallTrace() (string, int) {
 }
 func getPrefix() string {
 	file, lineno := getCallTrace()
+	path := strings.Split(file, "/")
+	if len(path) > 3 {
+		file = strings.Join(path[len(path)-3:], "/")
+	}
 	return strings.Join([]string{"\t", file, "\t", strconv.Itoa(lineno), "\t"}, "")
 }
