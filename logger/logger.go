@@ -3,6 +3,9 @@ package logger
 import (
 	"log"
 	"os"
+	"runtime"
+	"strconv"
+	"strings"
 )
 
 var (
@@ -32,11 +35,23 @@ func SetFile(file string) {
 }
 func Info(format string, v ...any) {
 	if LogLevel <= InfoLevel {
-		infoLogger.Printf(format, v...)
+		infoLogger.Printf(getPrefix()+format, v...)
 	}
 }
 func Debug(format string, v ...any) {
 	if LogLevel <= DebugLevel {
-		debuglogger.Printf(format, v...)
+		debuglogger.Printf(getPrefix()+format, v...)
 	}
+}
+
+func getCallTrace() (string, int) {
+	_, file, lineno, ok := runtime.Caller(0)
+	if ok {
+		return file, lineno
+	}
+	return "", 0
+}
+func getPrefix() string {
+	file, lineno := getCallTrace()
+	return strings.Join([]string{"\t", file, "\t", strconv.Itoa(lineno), "\t"}, "")
 }

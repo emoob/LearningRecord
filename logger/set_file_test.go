@@ -6,7 +6,7 @@ import (
 )
 
 func TestSetFile(t *testing.T) {
-	SetLevel(1)
+	SetLevel(0)
 	SetFile(time.Now().Format(time.DateOnly) + ".log")
 	Info("info")
 	Debug("debug")
