@@ -23,4 +23,11 @@ func TestStack(t *testing.T) {
 		stack.Top,
 		stack.E,
 		len(stack.E))
+
+	data := []int{0, 2, 2, 3, 4, 4}
+	for i := 0; i < len(data); i++ {
+		if data[i] == data[i+1] {
+
+		}
+	}
 }

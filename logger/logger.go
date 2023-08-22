@@ -1,5 +1,6 @@
 package logger
 
+// runtime 包，获取行时系统的功能
 import (
 	"log"
 	"os"
