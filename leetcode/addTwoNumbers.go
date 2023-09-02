@@ -6,7 +6,7 @@ type ListNode struct {
 }
 
 // l1 和 l2 为当前遍历的节点，carry 为进位
-func pushTwo(l1, l2 *ListNode, carry int) *ListNode {
+func pushTwoNum(l1, l2 *ListNode, carry int) *ListNode {
 	// 递归边界：l1 和 l2 都是空节点
 	if l1 == nil && l2 == nil {
 		if carry != 0 {
@@ -30,10 +30,10 @@ func pushTwo(l1, l2 *ListNode, carry int) *ListNode {
 	// 每个节点保存一个数位
 	l1.Val = carry % 10
 	// 进位
-	l1.Next = pushTwo(l1.Next, l2, carry/10)
+	l1.Next = pushTwoNum(l1.Next, l2, carry/10)
 	return l1
 }
 
 func addTwoNumbers(l1, l2 *ListNode) *ListNode {
-	return pushTwo(l1, l2, 0)
+	return pushTwoNum(l1, l2, 0)
 }
